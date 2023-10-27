@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabular Data Example</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <table border="1" align="center">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Movie</th>
+        <th>Timeslot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((item) => { %>
+        <tr>
+          <td><%= item.studid %></td>
+          <td><%= item.movie %></td>
+          <td><%= item.timeslot %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

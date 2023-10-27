@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CINEMA 3 SCHEDULE </title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <center><h1>MOVIE SCHEDULE</h1></center>
+</head>
+<body>
+  <table border="1" align="center">
+    <thead>
+      <tr>
+        <th>MovieID</th>
+        <th>Movie</th>
+        <th>Timeslot</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% data.forEach((item) => { %>
+        <tr>
+          <td><%= item.studid %></td>
+          <td><%= item.movie %></td>
+          <td><%= item.timeslot %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <li><a href="/">Back</a></li>
+</body>
+</html>

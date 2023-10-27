@@ -1,0 +1,33 @@
+.movie-card {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .movie-card img{
+    max-width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+  }
+
+  .movie-title {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .actors {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .fauxButton {
+    border-radius: 5%;
+    padding: 3%;
+    background-color: #13124f;
+    text-decoration: none;
+    color: white;
+  }
+  .fauxButton:hover {
+    color: #f4e353;
+  } 
+  

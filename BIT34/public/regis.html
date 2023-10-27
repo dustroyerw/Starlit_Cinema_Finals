@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="indexStyle.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .nav-link:hover{
+      color:yellow;
+    }
+  </style>
+  <title>Registration Page</title>
+</head>
+<body>
+   <!-- navbar -->
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand"><span style="color: yellow;">Starlit</span>Cinemas</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a href="login.html" class="nav-link">LOGIN</a>
+          </li> 
+          <li class="nav-item">
+      <li><a href="regis.html"class="nav-link">REGISTER</a></li>
+  </ul>
+    </div>
+</nav>
+<!--end of navbar-->
+  <section class="vh-150 bg-white" style="padding-top: 1%; padding-bottom: 1%; background-image: url(nightSky.jpg); background-size: cover;">
+    <div class="container text-center" style="padding: 5%; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); background-color: white; border-radius: 10px;">
+  <div class="container">
+    <form class="registration-form" id="registrationForm">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label for="username" class="mb-2 mt-2" >Username:</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email" class="mb-2 mt-2" >Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password" class="mb-2 mt-2">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmpassword" class="mb-2 mt-2">Confirm Password:</label>
+        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" required>
+      </div>
+      <div class="form-group">
+        <div id="errorDiv"></div>
+        <div class="form-group">
+          <button type="submit"class="btn btn-dark mt-4">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const registrationForm = document.getElementById("registrationForm");
+      const errorDiv = document.getElementById("errorDiv");
+
+      registrationForm.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmpassword = document.getElementById("confirmpassword").value;
+
+        const formData = {
+          username,
+          email,
+          password,
+          confirmpassword,
+        };
+
+        try {
+          const response = await fetch('/regis', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+        
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data.message);
+            registrationForm.reset();
+            alert("Registration successful!");
+            window.location.href = "/index.html"; // Redirect to index.html after successful registration
+          } else {
+            const errorResponse = await response.text();
+            errorDiv.innerText = errorResponse;
+          }
+        } catch (error) {
+  console.error('Error submitting form:', error);
+  res.status(500).json({ error: 'An error occurred while submitting the form.' });
+}
+      });
+    });
+  </script>
+   <!--footer-->
+</section>     
+<section class="text-center bg-dark p-1">
+  <p class="text-light mt-2"><em>Copyright 2023 - StarlitCinema Group</em></p>
+  <p class="text-light"><em>Hosted on Node.js</em></p>
+</section>  
+</body>
+</html>

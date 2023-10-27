@@ -1,0 +1,21 @@
+style
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: aqua;
+    }
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+    form{
+        color: aqua;
+    }
+   div{
+    color: aqua;
+   }
+   li{
+    color:aqua;
+   }
